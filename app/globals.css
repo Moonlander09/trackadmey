@@ -1,26 +1,98 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+ 
+
+  /* Light Mode */
+  
+  --pmy: #f8fafc;
+  --sdy: #ffffff;
+  --try: #eef6ff;
+  --dark-pmy:#1E293B;
+  --dark-sdy:#2D3748;
+
+  --text-pmy:#1e293b;
+  --text-sdy:#64748b;
+  --text-dsb: #94A3B8;
+
+  --border:#E2E8F0;
+
+  --btn-pmy:#1E40AF;
+--btn-sdy:#0D9488;
+
+--grd-pmy:#d2daf5;
+--grd-sdy:#d4efed;
+
+--present:#10B981;
+--absent:#EF4444;
+
+
+
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+
+
+@keyframes testimonial-marquee {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.testimonial-track {
+  display: flex;
+  gap: 1.5rem; /* matches gap-6 */
+  width: 200%; /* double because of duplicated content */
+  animation: testimonial-marquee 22s linear infinite;
+  will-change: transform;
 }
+.testimonial-track:hover{
+  animation-play-state: paused !important
+
+}
+
+/* Hide scrollbar but keep scroll functionality */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* IE/Edge */
+  scrollbar-width: none;     /* Firefox */
+}
+
+
+/* HTML: <div class="loader"></div> */
+.loader {
+  width: 40px;
+  aspect-ratio: 1;
+  color: var(--btn-pmy);
+  position: relative;
+  background: radial-gradient(10px,currentColor 94%,#0000);
+}
+.loader:before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background:
+    radial-gradient(9px at bottom right,#0000 94%,currentColor) top    left,
+    radial-gradient(9px at bottom left ,#0000 94%,currentColor) top    right,
+    radial-gradient(9px at top    right,#0000 94%,currentColor) bottom left,
+    radial-gradient(9px at top    left ,#0000 94%,currentColor) bottom right;
+  background-size: 20px 20px;
+  background-repeat: no-repeat;
+  animation: l18 1.5s infinite cubic-bezier(0.3,1,0,1);
+}
+@keyframes l18 {
+   33%  {inset:-10px;transform: rotate(0deg)}
+   66%  {inset:-10px;transform: rotate(90deg)}
+   100% {inset:0    ;transform: rotate(90deg)}
+}
+
+body {
+  color: var(--text-pmy);
+}
+
