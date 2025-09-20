@@ -27,6 +27,8 @@ export async function middleware(req) {
   const token = req.cookies.get("jwt")?.value;
   const user = token ? await verifyJWT(token) : null;
 
+  console.log(token ,user)
+
   // 1. If logged in → block access to auth routes (signin/signup/etc.)
   if (user && authRoutes.includes(pathname)) {
     return NextResponse.redirect(new URL("/", req.url));
