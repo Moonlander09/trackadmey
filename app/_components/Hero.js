@@ -9,7 +9,7 @@ import { IoIosArrowForward } from "react-icons/io";
 
 export default function Hero() {
   return (
-    <section className="py-20">
+    <section className="py-10">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between px-6 md:px-12">
         
         {/* Left Content */}

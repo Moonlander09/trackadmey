@@ -35,7 +35,7 @@ export default function TestimonialSlider() {
   const track = [...testimonials, ...testimonials, ...testimonials];
 
   return (
-    <section className="relative py-16">
+    <section className="relative py-10">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         <motion.h2
           initial={{ opacity: 0, y: 30 }}

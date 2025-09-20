@@ -94,5 +94,15 @@
 
 body {
   color: var(--text-pmy);
+  background-color: #f8fafc;
+
+  background-image: 
+    radial-gradient(rgba(30, 64, 175, 0.2) 1.2px, transparent 1.2px),
+    radial-gradient(rgba(30, 64, 175, 0.2) 1.2px, #f8fafc 1.2px);
+
+  background-size: 48px 48px;
+  background-position: 0 0, 24px 24px;
 }
+
+
 

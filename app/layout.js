@@ -1,4 +1,5 @@
 import { Inter } from "next/font/google";
+import { Josefin_Sans } from "next/font/google";
 import "./globals.css";
 import Navbar from "./_components/NavBar";
 import Footer from "./_components/Footer";
@@ -7,6 +8,12 @@ import { AuthProvider } from "@/helper/AuthContext";
 
 const inter = Inter({
   subsets: ["latin"],
+  display: "swap",
+});
+
+const josefin = Josefin_Sans({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
   display: "swap",
 });
 
@@ -19,7 +26,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} antialiased `}>
+      <body className={`${josefin.className} antialiased `}>
         <AuthProvider>
           <Navbar />
           <main className="min-h-[600px]">

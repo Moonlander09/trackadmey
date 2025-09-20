@@ -23,7 +23,7 @@ export default function Features() {
   ];
 
   return (
-    <section className="py-20">
+    <section className="py-10">
       <div className="max-w-7xl mx-auto px-6 md:px-12 text-center">
         {/* Title */}
         <motion.h2

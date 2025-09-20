@@ -126,7 +126,7 @@ export default function Attendance() {
 
       {!loading && data && data?.history?.length > 0 && (
         <div className="space-y-8 mt-6">
-          <AttendanceSummary data={summaryData} loading={loading}/> 
+          <AttendanceSummary data={summaryData}/>
           <AttendanceChart history={data?.history} />
           <AttendanceTable history={data?.history}/>
         </div>
