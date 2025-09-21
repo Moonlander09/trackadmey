@@ -23,11 +23,19 @@ async function verifyJWT(token) {
 export async function middleware(req) {
   const { pathname } = req.nextUrl;
 
+
+  console.log('=== MIDDLEWARE DEBUG ===');
+  console.log('Path:', pathname);
+  console.log('All cookies:', req.cookies.getAll());
+  console.log('JWT cookie specifically:', req.cookies.get("jwt"));
+
   // Get JWT cookie
   const token = req.cookies.get("jwt")?.value;
   const user = token ? await verifyJWT(token) : null;
 
-  console.log(token ,user)
+  console.log('Token:', token);
+  console.log('User:', user);
+  console.log('========================');
 
   // 1. If logged in → block access to auth routes (signin/signup/etc.)
   if (user && authRoutes.includes(pathname)) {
