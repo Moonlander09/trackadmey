@@ -31,8 +31,11 @@ export default function ProfilePasswordChange() {
       console.log(data);
       if (res.ok) {
         toast.success(data.message);
+        document.cookie = `jwt=${
+          data.token
+        }; path=/; secure; samesite=none; max-age=${30 * 24 * 60 * 60}`;
         router.push("/");
-      }else{
+      } else {
         toast.error(data.message);
       }
     } catch (error) {
@@ -112,7 +115,8 @@ export default function ProfilePasswordChange() {
           type="submit"
           disabled={loading}
           className="w-full flex items-center gap-1.5 justify-center py-3 bg-gradient-to-r from-[var(--btn-pmy)] to-[var(--btn-sdy)] text-white font-semibold rounded-lg shadow-md disabled:opacity-70"
-        ><FaDownload />
+        >
+          <FaDownload />
           {loading ? "Updating ..." : "Update Password"}
         </motion.button>
       </form>
