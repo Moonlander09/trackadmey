@@ -18,6 +18,8 @@ export default function SignOutButton({ small }) {
         credentials: "include",
       });
       if (res.ok) {
+        // Clear the frontend cookie
+      document.cookie = `jwt=; path=/; secure; samesite=none; max-age=0`;
         const data = await res.json();
         toast.success(data.message);
         setUser(null);
